@@ -14,11 +14,11 @@ const partners = [
 
 const LogoItem = ({ name, logo }: { name: string; logo: string }) => (
   <div className="flex flex-col items-center justify-center px-8 md:px-12 gap-3 group">
-    <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+    <div className="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center">
       <img 
         src={logo} 
         alt={`${name} logo`}
-        className="w-10 h-10 md:w-12 md:h-12 object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300 dark:invert"
+        className="w-14 h-14 md:w-16 md:h-16 object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300 dark:invert"
       />
     </div>
     <span className="text-sm md:text-base font-medium tracking-tight text-muted-foreground/60 group-hover:text-foreground transition-colors duration-300 whitespace-nowrap select-none">
@@ -38,10 +38,6 @@ export function Partners() {
       
       {/* Logo ticker container */}
       <div className="relative w-full">
-        {/* Gradient masks for smooth fade effect */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
         {/* Scrolling container */}
         <div 
           className={cn(
