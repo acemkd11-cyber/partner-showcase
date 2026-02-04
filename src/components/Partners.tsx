@@ -1,20 +1,27 @@
 import { cn } from "@/lib/utils";
 
-// Partner logos - using text-based logos for a clean, modern look
+// Partner logos with placeholder images
 const partners = [
-  { name: "Stripe", id: 1 },
-  { name: "Vercel", id: 2 },
-  { name: "Linear", id: 3 },
-  { name: "Notion", id: 4 },
-  { name: "Figma", id: 5 },
-  { name: "Slack", id: 6 },
-  { name: "Discord", id: 7 },
-  { name: "GitHub", id: 8 },
+  { name: "Stripe", id: 1, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/stripe.svg" },
+  { name: "Vercel", id: 2, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/vercel.svg" },
+  { name: "Linear", id: 3, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linear.svg" },
+  { name: "Notion", id: 4, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/notion.svg" },
+  { name: "Figma", id: 5, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/figma.svg" },
+  { name: "Slack", id: 6, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/slack.svg" },
+  { name: "Discord", id: 7, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg" },
+  { name: "GitHub", id: 8, logo: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" },
 ];
 
-const LogoItem = ({ name }: { name: string }) => (
-  <div className="flex h-12 items-center justify-center px-8 md:px-12">
-    <span className="text-xl md:text-2xl font-semibold tracking-tight text-muted-foreground/60 hover:text-foreground transition-colors duration-300 whitespace-nowrap select-none">
+const LogoItem = ({ name, logo }: { name: string; logo: string }) => (
+  <div className="flex flex-col items-center justify-center px-8 md:px-12 gap-3 group">
+    <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
+      <img 
+        src={logo} 
+        alt={`${name} logo`}
+        className="w-10 h-10 md:w-12 md:h-12 object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300 dark:invert"
+      />
+    </div>
+    <span className="text-sm md:text-base font-medium tracking-tight text-muted-foreground/60 group-hover:text-foreground transition-colors duration-300 whitespace-nowrap select-none">
       {name}
     </span>
   </div>
@@ -44,11 +51,11 @@ export function Partners() {
         >
           {/* First set of logos */}
           {partners.map((partner) => (
-            <LogoItem key={`first-${partner.id}`} name={partner.name} />
+            <LogoItem key={`first-${partner.id}`} name={partner.name} logo={partner.logo} />
           ))}
           {/* Duplicate set for seamless loop */}
           {partners.map((partner) => (
-            <LogoItem key={`second-${partner.id}`} name={partner.name} />
+            <LogoItem key={`second-${partner.id}`} name={partner.name} logo={partner.logo} />
           ))}
         </div>
       </div>
